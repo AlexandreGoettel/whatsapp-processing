@@ -18,7 +18,6 @@ def main(name, _minWordLength=5):
 
         words = " ".join([word for word in words.split(" ")
                           if len(word) > _minWordLength
-                          # and "html" not in word.lower()])
                           and not any(_word in word.lower()
                                       for _word in words2exclude)])
 
@@ -29,7 +28,7 @@ def main(name, _minWordLength=5):
         plt.imshow(wordcloud, interpolation="bilinear")
         plt.axis("off")
         plt.title(author)
-        plt.show()
+        plt.savefig("results/{}.pdf".format(author))
 
 
 if __name__ == '__main__':
